@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Winterlight – Eine Weihnachts-Schatzsuche für Kinder von 3 bis 8 Jahren</title>
+<meta name="description" content="Winterlight ist ein gemütliches Weihnachts-Suchspiel für Kinder von 3 bis 8 Jahren. 32 große, handgezeichnete Szenen mit je 12 versteckten Schätzen. Keine Werbung, keine Konten, funktioniert offline.">
+<meta property="og:title" content="Winterlight – Eine Weihnachts-Schatzsuche für kleine Entdecker">
+<meta property="og:description" content="Finde die versteckten Schätze in 32 gemütlichen Weihnachtsszenen. Für Kinder von 3 bis 8 Jahren. Keine Werbung, keine Konten, funktioniert offline.">
+<meta property="og:image" content="https://ge2gether.app/winterlight/img/tab_1_village.jpg?v=4">
+<meta name="theme-color" content="#0b1233">
+<link rel="icon" href="../img/icon.png?v=4">
+<style>
+@font-face{font-family:'Mountains';src:url(../fonts/MountainsOfChristmas-Bold.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Nunito';src:url(../fonts/Nunito-Variable.woff2) format('woff2');font-weight:200 1000;font-display:swap}
+:root{--navy:#0b1233;--navy2:#16225a;--gold:#ffd23f;--red:#c62828;--green:#2e7d32;--cream:#fff8e7;--ink:#1d2340}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 20px/1.55 'Nunito',system-ui,sans-serif;color:var(--ink);background:var(--cream)}
+h1,h2,h3{font-family:'Mountains',cursive;font-weight:700;margin:0;line-height:1.05}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;font:800 19px/1 'Nunito',sans-serif;text-decoration:none;border:0;cursor:default}
+.btn.store{background:#ffffff1f;color:#fff;border:2px dashed #ffffff80}
+.btn.store small{display:block;font:700 12px/1 'Nunito';opacity:.8;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
+.btn.store span{display:block}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:56px 0 0;background:linear-gradient(180deg,#060d26 0%,#16225a 55%,#2a3f86 100%)}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0%,#5dffb044,transparent 70%)}
+.snow{position:absolute;inset:-200px 0 0;pointer-events:none;background-image:radial-gradient(3px 3px at 20px 30px,#fff,transparent),radial-gradient(2px 2px at 90px 120px,#fff,transparent),radial-gradient(4px 4px at 160px 60px,#fffd,transparent),radial-gradient(2px 2px at 230px 200px,#fff,transparent),radial-gradient(3px 3px at 300px 100px,#fffc,transparent);background-size:340px 260px;animation:fall 14s linear infinite;opacity:.9}
+.snow.b{background-size:230px 190px;animation-duration:9s;opacity:.55}
+@keyframes fall{to{transform:translateY(260px)}}
+.hero .wrap{position:relative}
+.logo{width:110px;height:110px;margin:0 auto 14px;border-radius:26px;box-shadow:0 8px 30px #0008;animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-2deg)}}
+.hero h1{font-size:clamp(64px,13vw,128px);color:var(--gold);text-shadow:0 5px 0 #a87400,0 12px 30px #000a}
+.tag{font:700 clamp(24px,4.2vw,36px)/1.2 'Mountains',cursive;margin:10px auto 0;max-width:720px}
+.age{display:inline-block;margin:22px 0 0;background:var(--gold);color:#5a3a00;font:900 22px/1 'Nunito';padding:12px 22px;border-radius:999px;box-shadow:0 5px 0 #a87400}
+.cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:30px 0 0}
+.soon{font-size:16px;opacity:.85;margin:14px 0 0}
+.heroshots{display:flex;justify-content:center;align-items:flex-end;gap:clamp(8px,2vw,24px);margin-top:44px}
+.heroshots figure{margin:0;border-radius:0;overflow:hidden;border:6px solid #0b1233;border-bottom:0;box-shadow:0 0 40px #0008;background:#0b1233}
+.heroshots .s1{width:min(30%,260px);transform:translateY(24px)}
+.heroshots .s2{width:min(36%,310px)}
+.heroshots .s3{width:min(30%,260px);transform:translateY(24px)}
+.ground{height:70px;background:#f4f8ff;margin-top:-1px;position:relative;z-index:2;border-radius:50% 50% 0 0/100% 100% 0 0}
+
+/* ---------- sections ---------- */
+section{padding:72px 0}
+h2{font-size:clamp(38px,6vw,60px);text-align:center;color:var(--red)}
+.lead{text-align:center;max-width:640px;margin:14px auto 0;font-size:22px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:44px}
+.step{background:#fff;border-radius:32px;padding:30px 24px;text-align:center;box-shadow:0 8px 0 #0001,0 14px 30px #0b123314}
+.step .big{font-size:76px;line-height:1;display:block;margin-bottom:6px}
+.step h3{font-size:36px;color:var(--navy2)}
+.step:nth-child(1){transform:rotate(-1.5deg)}.step:nth-child(3){transform:rotate(1.5deg)}
+
+.modes{background:#f4f8ff}
+.modegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:44px}
+.mode{border-radius:36px;padding:34px 30px;color:#fff;position:relative;overflow:hidden}
+.mode.elf{background:linear-gradient(160deg,#2e7d32,#1b5e20)}
+.mode.classic{background:linear-gradient(160deg,#c62828,#7d1414)}
+.mode h3{font-size:46px;color:var(--gold)}
+.mode .for{display:inline-block;background:#ffffff2b;border-radius:999px;padding:6px 16px;font-weight:900;font-size:17px;margin:8px 0 14px}
+.mode ul{list-style:none;margin:0;padding:0}
+.mode li{padding:7px 0 7px 38px;position:relative;font-weight:700}
+.mode li:before{content:"⭐";position:absolute;left:0;top:6px}
+
+.gallery{background:var(--navy);color:#fff}
+.gallery h2{color:var(--gold)}
+.scroller{display:flex;align-items:center;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:44px 24px 20px;margin:0 -24px;-webkit-overflow-scrolling:touch}
+.scroller figure{flex:0 0 min(78%,420px);scroll-snap-align:center;margin:0;overflow:hidden;background:#16225a;box-shadow:0 10px 30px #0008}
+.scroller figure.wide{flex-basis:min(88%,640px)}
+.scroller figure:not(.wide){flex-basis:min(70%,340px)}
+.scroller figcaption{padding:14px 18px;font:700 25px/1.1 'Mountains',cursive;color:var(--gold)}
+.hint{text-align:center;opacity:.7;font-size:16px;margin:0}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;margin-top:0}
+.fact{background:var(--gold);border-radius:28px;padding:22px 12px;text-align:center;color:#5a3a00;box-shadow:0 6px 0 #a87400}
+.fact b{display:block;font:700 58px/1 'Mountains',cursive;color:var(--red)}
+.fact span{font-weight:900;font-size:18px}
+
+.grown{background:#fff}
+.grown h2{color:var(--navy2)}
+.promises{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:40px}
+.promise{display:flex;gap:16px;align-items:flex-start;background:var(--cream);border-radius:22px;padding:20px 22px}
+.promise i{font-style:normal;font-size:36px;line-height:1}
+.promise b{display:block;font-size:20px}
+.promise span{font-size:17px;opacity:.85}
+.price{max-width:720px;margin:34px auto 0;text-align:center;font-size:19px;opacity:.9}
+
+footer{background:var(--navy);color:#ffffffcc;text-align:center;padding:48px 24px 60px;font-size:17px;position:relative}
+footer a{color:var(--gold);font-weight:800}
+footer .links{margin:10px 0 0;display:flex;gap:22px;justify-content:center;flex-wrap:wrap}
+.secret{position:absolute;right:7%;bottom:22px;background:none;border:0;padding:6px;cursor:pointer;font-size:26px;line-height:1;opacity:.35;filter:grayscale(.2);transition:.2s}
+.secret:hover,.secret:focus-visible{opacity:1;transform:scale(1.3) rotate(15deg)}
+#found{position:fixed;left:50%;bottom:30px;transform:translate(-50%,120px);visibility:hidden;background:var(--gold);color:#5a3a00;font:700 30px/1 'Mountains',cursive;padding:16px 28px;border-radius:999px;box-shadow:0 8px 30px #0008;transition:transform .35s;z-index:20}
+#found.on{transform:translate(-50%,0);visibility:visible}
+.spark{position:fixed;width:12px;height:12px;border-radius:50%;pointer-events:none;z-index:19;transition:transform .9s cubic-bezier(.1,.8,.3,1),opacity .9s}
+
+@media (max-width:600px){body{font-size:18px}.hero{padding-top:40px}.logo{width:92px;height:92px}section{padding:56px 0}.step:nth-child(n){transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+<link rel="canonical" href="https://ge2gether.app/winterlight/de/">
+<link rel="alternate" hreflang="en" href="https://ge2gether.app/winterlight/">
+<link rel="alternate" hreflang="pt-BR" href="https://ge2gether.app/winterlight/pt/">
+<link rel="alternate" hreflang="es" href="https://ge2gether.app/winterlight/es/">
+<link rel="alternate" hreflang="fr" href="https://ge2gether.app/winterlight/fr/">
+<link rel="alternate" hreflang="de" href="https://ge2gether.app/winterlight/de/">
+<link rel="alternate" hreflang="it" href="https://ge2gether.app/winterlight/it/">
+<link rel="alternate" hreflang="x-default" href="https://ge2gether.app/winterlight/">
+<meta property="og:type" content="website"><meta property="og:url" content="https://ge2gether.app/winterlight/de/"><meta property="og:locale" content="de_DE"><meta property="og:site_name" content="Winterlight">
+<style>
+.lang{position:absolute;top:14px;right:16px;z-index:5;display:flex;flex-wrap:wrap;gap:4px 6px;justify-content:flex-end;max-width:calc(100% - 32px);font:800 14px/1 'Nunito',sans-serif}
+.lang a{color:#fff;text-decoration:none;padding:7px 11px;border-radius:999px;background:#ffffff1a;border:1px solid #ffffff33}
+.lang a:hover,.lang a:focus-visible{background:#ffffff40}
+.lang a[aria-current]{background:var(--gold);color:#5a3a00;border-color:var(--gold)}
+@media (max-width:600px){.lang{position:relative;top:auto;right:auto;justify-content:center;margin:0 auto 18px;max-width:none;padding:0 12px}.lang a{padding:6px 9px;font-size:13px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <nav class="lang" aria-label="Sprache"><a href="../" hreflang="en" lang="en" data-l="en">English</a><a href="../pt/" hreflang="pt-BR" lang="pt-BR" data-l="pt">Português</a><a href="../es/" hreflang="es" lang="es" data-l="es">Español</a><a href="../fr/" hreflang="fr" lang="fr" data-l="fr">Français</a><a href="./" hreflang="de" lang="de" aria-current="true" data-l="de">Deutsch</a><a href="../it/" hreflang="it" lang="it" data-l="it">Italiano</a></nav>
+  <div class="snow" aria-hidden="true"></div><div class="snow b" aria-hidden="true"></div>
+  <div class="wrap">
+    <img class="logo" src="../img/icon.png?v=4" width="110" height="110" alt="App-Symbol von Winterlight: ein Weihnachtsbaum unter einer Lupe">
+    <h1>Winterlight</h1>
+    <p class="tag">Eine Weihnachts-Schatzsuche für kleine Entdecker!</p>
+    <span class="age">🎄 Für 3 bis 8 Jahre</span>
+    <div class="cta">
+      <div class="btn store" role="note"><div><small>Bald im</small><span>App Store</span></div></div>
+      <div class="btn store" role="note"><div><small>Bald bei</small><span>Google Play</span></div></div>
+    </div>
+    <p class="soon">Kostenlos ausprobieren · 3 Szenen für immer gratis</p>
+    <div class="heroshots">
+      <figure class="s1"><img src="../img/phone_2_candy.jpg?v=4" width="540" height="960" alt="Die Szene Zuckerstangenwald, voller Lollibäume und Süßigkeiten"></figure>
+      <figure class="s2"><img src="../img/phone_1_village.jpg?v=4" width="540" height="960" alt="Die Szene Verschneiter Dorfplatz mit einem riesigen Weihnachtsbaum und Schneemännern"></figure>
+      <figure class="s3"><img src="../img/phone_3_cove.jpg?v=4" width="540" height="960" alt="Die Szene Pinguinbucht mit Pinguinen, einem Iglu und Polarlichtern"></figure>
+    </div>
+  </div>
+  <div class="ground"></div>
+</header>
+
+<main>
+<section id="how">
+  <div class="wrap">
+    <h2>Wie spielt man?</h2>
+    <p class="lead">Es ist ganz einfach wie 1, 2, 3, und du kannst allein oder zusammen mit einem Erwachsenen spielen!</p>
+    <div class="steps">
+      <div class="step"><span class="big" aria-hidden="true">👀</span><h3>1. Schau!</h3><p>Jede Szene ist eine große, gemütliche Weihnachtswelt. Wische mit dem Finger, um zu erkunden, und zoome mit zwei Fingern heran.</p></div>
+      <div class="step"><span class="big" aria-hidden="true">👆</span><h3>2. Tippe!</h3><p>Siehst du etwas von der Liste? Such es und tippe darauf, wenn du es versteckt entdeckst.</p></div>
+      <div class="step"><span class="big" aria-hidden="true">⭐</span><h3>3. Hurra!</h3><p>Finde alle 12 Schätze, um die Szene zu beenden, und such dir das nächste Abenteuer aus!</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="modes" id="modes">
+  <div class="wrap">
+    <h2>Ein Spiel, zwei Arten zu spielen</h2>
+    <p class="lead">Wähle den Modus, der zu dir passt. Du kannst jederzeit mit einem Tipp wechseln.</p>
+    <div class="modegrid">
+      <article class="mode elf">
+        <h3>🧝 Kleine Elfen</h3>
+        <span class="for">Für 3 bis 6 Jahre</span>
+        <ul>
+          <li>Größere Dinge, die leichter zu entdecken und anzutippen sind</li>
+          <li>Eine freundliche Stimme sagt dir den Namen von allem, was du findest</li>
+          <li>Sanfte, leuchtende Tipps, wann immer du willst</li>
+          <li>Keine Uhr, keine Eile, kein Druck</li>
+        </ul>
+      </article>
+      <article class="mode classic">
+        <h3>🎯 Klassisch</h3>
+        <span class="for">Für 6 bis 8 Jahre, und auch für Größere</span>
+        <ul>
+          <li>Kleinere, knifflige Verstecke</li>
+          <li>Eine Uhr, damit du deine Bestzeit schlagen kannst</li>
+          <li>Drei Tipps in jeder Szene</li>
+          <li>Spaß für die ganze Familie</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="scenes">
+  <div class="wrap">
+    <h2>32 Szenen zum Erkunden</h2>
+    <p class="lead">Von der Werkstatt des Weihnachtsmanns über eine Pinguinbucht und einen Süßigkeitenwald bis zum Winterjahrmarkt, und bei jedem Spiel verstecken sich die Schätze woanders!</p>
+  </div>
+  <div class="wrap">
+    <div class="scroller" tabindex="0" aria-label="Screenshots der Szenen, seitlich scrollen">
+      <figure class="wide"><img src="../img/tab_1_village.jpg?v=4" width="1100" height="619" loading="lazy" alt="Verschneiter Dorfplatz: Marktstände, ein riesiger Baum und Schlittschuhläufer"><figcaption>Verschneiter Dorfplatz</figcaption></figure>
+      <figure><img src="../img/phone_2_candy.jpg?v=4" width="540" height="960" loading="lazy" alt="Zuckerstangenwald mit Lollibäumen"><figcaption>Zuckerstangenwald</figcaption></figure>
+      <figure><img src="../img/phone_3_cove.jpg?v=4" width="540" height="960" loading="lazy" alt="Pinguinbucht unter dem Polarlicht"><figcaption>Pinguinbucht</figcaption></figure>
+      <figure class="wide"><img src="../img/tab_3_fair.jpg?v=4" width="1100" height="619" loading="lazy" alt="Der Winterjahrmarkt mit Riesenrad und kleinen Ständen"><figcaption>Winterjahrmarkt</figcaption></figure>
+      <figure><img src="../img/phone_4_lighthouse.jpg?v=4" width="540" height="960" loading="lazy" alt="Leuchtturmküste in der Dämmerung"><figcaption>Leuchtturmküste</figcaption></figure>
+      <figure class="wide"><img src="../img/tab_4_menu.jpg?v=4" width="1100" height="619" loading="lazy" alt="Das Winterlight-Menü mit allen Szenen"><figcaption>Such dir dein Abenteuer aus</figcaption></figure>
+    </div>
+    <p class="hint">👉 Wische, um mehr zu sehen</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="facts">
+      <div class="fact"><b>32</b><span>große Szenen</span></div>
+      <div class="fact"><b>12</b><span>Schätze in jeder</span></div>
+      <div class="fact"><b>0</b><span>Werbung</span></div>
+      <div class="fact"><b>✓</b><span>funktioniert offline</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="grown" id="grownups">
+  <div class="wrap">
+    <h2>Ein Hinweis für Erwachsene</h2>
+    <p class="lead">Winterlight wurde als ruhiger, sicherer Ort für die Kleinen gemacht.</p>
+    <div class="promises">
+      <div class="promise"><i aria-hidden="true">🚫</i><div><b>Keine Werbung</b><span>Niemals. Nicht mal eine kleine.</span></div></div>
+      <div class="promise"><i aria-hidden="true">🔒</i><div><b>Sammelt nichts</b><span>Keine Konten, keine Anmeldungen, kein Tracking. Der Fortschritt bleibt auf deinem Gerät.</span></div></div>
+      <div class="promise"><i aria-hidden="true">📴</i><div><b>Funktioniert offline</b><span>Ideal für Autofahrten, Flüge und Omas Haus.</span></div></div>
+      <div class="promise"><i aria-hidden="true">🧮</i><div><b>Sperre nur für Erwachsene</b><span>Der Shop ist im Modus Kleine Elfen versteckt, und jeder Kauf stellt zuerst eine Erwachsenenfrage.</span></div></div>
+      <div class="promise"><i aria-hidden="true">🎁</i><div><b>Einmal zahlen, oder nie</b><span>3 Szenen bleiben für immer gratis. Das Weihnachtsdorf-Paket schaltet mit einem Kauf 29 weitere frei.</span></div></div>
+      <div class="promise"><i aria-hidden="true">🌙</i><div><b>Sanft von Grund auf</b><span>Kein Druck, nichts Gruseliges, kein Trubel. Nur gemütliche Weihnachten.</span></div></div>
+    </div>
+    <p class="price">Keine Abos und keine Überraschungen. Lies die vollständige <a href="https://g2g-get-2-gether.github.io/winterlight-privacy/">Datenschutzerklärung</a> (auf Englisch).</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><b style="font-family:Mountains,cursive;font-size:30px;color:var(--gold)">Winterlight</b><br>Frohe Weihnachten und viel Spaß beim Suchen! 🎄</p>
+  <div class="links">
+    <a href="https://g2g-get-2-gether.github.io/winterlight-privacy/">Datenschutzerklärung (Englisch)</a>
+    <a href="mailto:gustavomunhoz@me.com">Sag Hallo</a>
+  </div>
+  <p style="font-size:14px;opacity:.6;margin-top:22px">© 2026 G2G. App Store ist eine Marke von Apple Inc. Google Play ist eine Marke von Google LLC.</p>
+  <button class="secret" id="secret" aria-label="Ein versteckter Stern! Tipp ihn an">⭐</button>
+</footer>
+<div id="found" role="status" aria-live="polite">Du hast den versteckten Stern gefunden! ⭐</div>
+
+<script>
+(function(){
+  var b=document.getElementById('secret'),f=document.getElementById('found'),t;
+  b.addEventListener('click',function(){
+    var r=b.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,cols=['#ffd23f','#ff6b6b','#5dffb0','#7db6ff','#fff'];
+    for(var i=0;i<22;i++){(function(i){var d=document.createElement('div');d.className='spark';d.style.left=cx+'px';d.style.top=cy+'px';d.style.background=cols[i%5];document.body.appendChild(d);
+      var a=i/22*6.28,k=70+Math.random()*90;requestAnimationFrame(function(){requestAnimationFrame(function(){d.style.transform='translate('+Math.cos(a)*k+'px,'+Math.sin(a)*k+'px) scale(.3)';d.style.opacity=0})});setTimeout(function(){d.remove()},1000)})(i)}
+    f.classList.add('on');clearTimeout(t);t=setTimeout(function(){f.classList.remove('on')},2600);
+  });
+})();
+</script>
+<script>document.querySelectorAll('.lang a').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('wl-lang',a.getAttribute('data-l'))}catch(e){}})})</script>
+</body>
+</html>
